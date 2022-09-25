@@ -1,0 +1,45 @@
+//AnotherStringMinimization
+import java.util.*;
+ 
+public class StringMin {
+    public static void main(String[] args) {
+        Scanner sc=new Scanner(System.in);
+        int tt=sc.nextInt();
+        for(int i=0;i<tt;i++){
+            int n= sc.nextInt();
+            int m= sc.nextInt();
+            char[] s=new char[m];
+            for(int j=0;j<m;j++){
+                s[j]='B';
+            }
+            int[] arr=new int[n];
+            for(int j=0;j<n;j++){
+                arr[j]=sc.nextInt();
+            }
+            for(int j=0;j<n;j++){
+                /*if(m+1-arr[j]>=0 && m+1-arr[j]<m ){
+                    if(m+1-arr[j]<arr[j] && s[m+1-arr[j]]!='A' )
+                        s[m+1-arr[j]-1]='A';
+                    else if(m+1-arr[j]<arr[j] && s[m+1-arr[j]]=='A')
+                        s[arr[j]-1]='A';
+                    else if(m+1-arr[j]>arr[j] && s[m+1-arr[j]]!='A')
+                        s[arr[j]-1]='A';
+                    else if(m+1-arr[j]>arr[j] && s[m+1-arr[j]]=='A')
+                        s[m+1-arr[j]-1]='A';
+                    else if(m+1-arr[j]==arr[j])
+                        s[arr[j]-1]='A';
+                }
+                else
+                    s[arr[j]-1]='A';*/
+                int x=Math.min(arr[j],m+1-arr[j]);
+                if(s[x-1]=='A')
+                    s[Math.max(arr[j],m+1-arr[j])-1]='A';
+                else
+                    s[x-1]='A';
+            }
+            String str=new String();
+            System.out.println(String.valueOf(s));
+ 
+        }
+    }
+}
